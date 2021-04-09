@@ -51,11 +51,9 @@ The challenges to this problem, like most sentiment analysis problems, are the f
 
 Cyberbullying is becoming a serious problem from the rapid growth in the number of internet users. There are about 4.66 billion internet users all over the world today, and this number grew by 319 million in the past 12 months. With the vast amount of users online, it is very difficult to control for inappropriate behavior. Fortunately, the growth of techniques related to natural language processing provides a potential solution, which is efficient and accurate, to the problem of cyberbullying. By analyzing user sentiment using algorithms, cyberbullying comments can be detected and further blocked by the server.
 
-In the rest of this section, we will discuss our approach to solving this problem using NLP.
-
 \subsection{Dataset}
 
-We initially explored Cyberbullying Datasets from Mendeley Data \footnote[1]{https://data.mendeley.com/datasets/jf4pzyvnpj/1}, which contains labeled user comments data collected from various platforms like Kaggle, Twitter, and Youtube. We chose the following three datasets for sentiment analysis on Twitter:
+The Cyberbullying Datasets from Mendeley Data \footnote[1]{https://data.mendeley.com/datasets/jf4pzyvnpj/1} contains labeled user comments data collected from various platforms like Kaggle, Twitter, and Youtube. The following three datasets were chosen for sentiment analysis on Twitter:
 
 \begin{center}
 Twitter\_parsed\_dataset.csv
@@ -65,7 +63,7 @@ Twitter\_racism\_parsed\_dataset.csv
 Twitter\_sexism\_parsed\_dataset.csv
 \end{center}
 
-We are interested in tweets that identify to be racist or sexist -- these negative traits go against community guidelines and are the focus of our classification. Merging all three datasets together, the dataset has 45197 entries. 34503 (76.33\%) of entries are neutral, while the other 10694 (23.67\%) tweets have been labeled either racist or sexist.
+Tweets that identify to be racist or sexist go against community guidelines and are the focus of classification. Merging all three datasets together, the dataset has 45197 entries. 34503 (76.33\%) of entries are neutral, while the other 10694 (23.67\%) tweets have been labeled either racist or sexist.
 
 \subsection{Sample Tweets}
 \begin{quotation}
@@ -90,11 +88,11 @@ The above messages contains sexism or racism content and is marked positive in t
 \emph{@OneLegSandpiper @DblBlackDs Show me some pictures of them beheading people and reinstating slavery. Leftist moral equivalents are stupid.}
 \end{quotation}
 
-These messages are examples of non-bullying tweets. Noticed that some of these tweets also contain bad sentiment or racist keywords, but the main focus of the tweet is not to bully someone.
+These messages are examples of non-bullying tweets. Notice that some of these tweets also contain bad sentiment or racist keywords, but the main focus of the tweet is not to bully someone.
 
 \subsection{Data Cleaning }
 
-We were given raw tweets and the fluidity of language present in twitter data, prompted much consideration before tokenization:
+Raw tweet text and the difficulty in the fluidity of language present in twitter data, prompted much consideration before tokenization:
 
 \begin{itemize}
 \item Addressing Twitter handles (@user)
@@ -104,30 +102,30 @@ We were given raw tweets and the fluidity of language present in twitter data, p
 \item Lowercasing
 \end{itemize}
 
-Additionally, we did not remove hashtags and retweet labels (RT). We include hashtags into our vocabulary in order to not take away unique sentiment values related to certain hashtags and we don't remove retweet labels as they are superficial. Once we clean our tweets, we split them into tokens to prepare for featurization.
+Additionally, hashtags and retweet labels (RT) were not removed. By including hashtags into the vocabulary, it does not take away unique sentiment values related to certain hashtags. Tweet labels are not removed for insignificance. The cleaned tweets are then split into tokens for featurization and further training.
 
 
 \subsection{Word Embeddings}
 
-In order to train classification models, our preprocessed data need to be converted to features. Tf-idf vectorization, which accounts for word frequencies, will be used as our baseline featurization method. Counting the number of times a certain token appears in a corpus is a simple plan for us to identify relationships between frequencies and text sentiment; however, nothing more.
+In order to train classification models, the preprocessed data (cleaned tokenized tweets) need to be converted to features. Tf-idf vectorization, which accounts for word frequencies, will be used as the baseline featurization method. Counting the number of times a certain token appears in a corpus is a simple plan to identify relationships between frequencies and text sentiment; however, nothing more.
 
 	Several existing research papers have proposed use of Word2Vec word embeddings in future research to initialize classification models, specifically convolutional neural networks. [1](Huang, Qianjia, et al.) Word2Vec, as a shallow neural network used to obtain word vectors, better represents our tokenized tweets as it utilizes word context. 
 
-	Finally, Bidirectional Encoder Representations from Transformers (BERT) was another pre-trained processing model that piqued our interest because it was a higher level tokenizer that maintained sequence information.
+	Finally, Bidirectional Encoder Representations from Transformers (BERT) was another pre-trained processing model that was a topic of interest because it was a higher level tokenizer that maintained sequence information.
 
 
 
 \section{Models}
-A lot of existing machine learning algorithms and models can be applied to the problem of cyberbullying auto detection. The authors focus specifically on the performance of the combinations of different word embeddings and models. In this section, the authors will explain four models: Baseline Model, Tf-idf with Feed-Forward Neural Network, Word2Vec with Convolutional Neural Network, and BERT.
+A lot of existing machine learning algorithms and models can be applied to the problem of cyberbullying auto detection. The authors focus specifically on the performance of the combinations of different word embeddings and models. In this section, four models are featured: Baseline Model, Tf-idf with Feed-Forward Neural Network, Word2Vec with Convolutional Neural Network, and BERT.
 
 \subsection{Baseline Model}
-The authors built a naive one-class classification model with an accuracy of 0.76, that is, if we simply classified a tweet to be racist or sexist, it would be correct about 76\% of the time. We expect any potential models to be at least better than this model.
+The authors built a naive one-class classification model with an accuracy of 0.76, that is, if a model were to classify all tweets to be simply racist or sexist, it would be correct about 76\% of the time. Any potential models are expected to be at least better than this model.
 
-	Instead, Tf-idf word embeddings with a logistic regression model was used as a primary baseline comparison as we introduce alternative models and also word embeddings that hopefully capture significantly better results. We achieve an accuracy of about 85\% with this baseline.
+	Tf-idf word embeddings with a logistic regression model was used as a primary baseline comparison as alternative models and word embeddings are introduced to hopefully capture significantly better results.  An accuracy of about 85\% is achieved with this baseline.
 
 
 \subsection{Tf-idf with Feed-Forward Neural Network}
-By training a 2-hidden-layer feed-forward neural network with Tf-idf embedded data, the model achieved an accuracy of 94.8\%. In order to handle the input dimension for neural networks, authors decided to use 500 hundred as the max number of features of Tf-idf so that each input has 500 features. After the input layer, the data is then passed to two hidden layers with ReLU activation. Finally, a sigmoid layer will map the hidden layer output into a number between zero and one so that the final output could be determined.
+By training a 2-hidden-layer feed-forward neural network with Tf-idf embedded data, the model achieved an accuracy of 94.8\%. In order to handle the input dimension for neural networks, the authors decided to use 500 hundred as the max number of features of Tf-idf so that each input has 500 features. After the input layer, the data is then passed to two hidden layers with ReLU activation. Finally, a sigmoid layer maps the hidden layer output into a number between zero and one so that the final output could be determined.
 
 The training process takes about one second to run for each epoch, which is pretty efficient.
 
@@ -139,9 +137,9 @@ The training process takes about one second to run for each epoch, which is pret
 
 \subsection{Word2Vec with Convolutional Neural Network (CNN)}
 
-Entering the tokenized tweets into a size-200 word2vec, the model generated a vocabulary of size 19645, which is approximately 20000. As a result, a 10000 * 200 embedding matrix is built and will be put into CNN as the embedding layer. After the embedding layer, the word vectors are then passed into a layer of 1D convolution and another max-pooling layer, and finally the fully connected layers.
+Entering the tokenized tweets into a size-200 word2vec, the model generated a vocabulary of size 19645, which is approximately 20000. As a result, a 10000 * 200 embedding matrix is built and is passed into CNN as the embedding layer. After the embedding layer, the word vectors are then passed into a layer of 1D convolution and another max-pooling layer, and finally the fully connected layers.
 
-Under such architecture, the model achieved accuracy of 98.04\%, which improved significantly compared to the previous model. As for efficiency, each batch takes about 83 seconds to train, which is fairly efficient.
+The model achieved accuracy of 98.04\%, which improved significantly compared to the previous model. As for efficiency, each batch takes about 83 seconds to train, which is fairly efficient.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=70mm]{fig2.png}}
@@ -151,7 +149,7 @@ Under such architecture, the model achieved accuracy of 98.04\%, which improved 
 
 \subsection{BERT}
 
-Initially the authors employed a BERT tokenizer, pretrained on an uncased corpus, and utilized default settings. However, we quickly learned that classification with BERT default parameters yields predicting the majority class. With specific optimizer parameters and freezing a few layers, it allowed for the model to learn better than its default counterpart.
+Initially ,the authors employed a BERT tokenizer, pretrained on an uncased corpus, and utilized default settings. However, classification with BERT default parameters yields predicting the majority class. With specific optimizer parameters and freezing a few layers, it allowed for the model to learn better than its default counterpart.
 
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=70mm]{fig3.png}}
@@ -176,7 +174,7 @@ Initially the authors employed a BERT tokenizer, pretrained on an uncased corpus
 \end{center}
 \end{table}
 
-Tf-idf with Logistic Regression is too low to use as a model baseline; Tf-idf Feed-Forward Artificial Neural network is a good baseline as it accurately classifies a good portion of the data with room for improvement. With our own research Word2Vec with CNN performed the best with a test accuracy of 98.04\%. However, BERT on its own, did not perform as well as we had hoped with an accuracy lower than our baseline at 89.05\%. 
+Tf-idf with Logistic Regression is too low to use as a model baseline; Tf-idf Feed-Forward Artificial Neural network is a good baseline as it accurately classifies a good portion of the data with room for improvement. Word2Vec with CNN performed the best with a test accuracy of 98.04\%. However, BERT on its own, did not perform as well with an accuracy of 89.05\%, which is lower than the baseline. 
 
 
 \section{Error Analysis}
@@ -209,8 +207,8 @@ Most false negative tweets employ an underlying tone of sarcasm and surprisingly
 
 \section{Conclusion}
 
-Word2Vec with CNN performed the best as the training and test accuracies are above 98\%. With little room for improvement, no amount of optimizations will be able to increase training and test accuracies and error analysis indicates that improvements will require targeting of specific tweets; our NLP models are not able to detect such outliers.
-	Cyberbullying will not be completely eliminated as it evolves and rears its head in different forms. Though our model correctly classified 98\% of tweets, we are still very concerned about our type II error rate as the impact of an unprevented cyberbullying tweet is immense. With 4.66 billion internet users, if 1\% of this population were to receive a cyberbullying message, that would be tremendous. For global communications platforms, a sentiment analysis model with an error rate of  <1\% is essential to preserving a safe community. CNN along with feature extraction methods and a word embedding feature superior to Word2Vec would potentially be a more successful candidate for model improvement. One possible combination would be to utilize BERT with CNN.
+Word2Vec with CNN performed the best as the training and test accuracies are above 98\%. With little room for improvement, no amount of optimizations will be able to increase training and test accuracies and error analysis indicates that improvements will require targeting of specific tweets; these NLP models are not able to detect such outliers.
+	Cyberbullying will not be completely eliminated as it evolves and rears its head in different forms. Though the best model correctly classified 98\% of tweets, the type II error rate presents much concern as the impact of an unprevented cyberbullying tweet is immense. With 4.66 billion internet users, if 1\% of this population were to receive a cyberbullying message, that would be tremendous. For global communications platforms, a sentiment analysis model with an error rate of  <1\% is essential to preserving a safe community. CNN along with feature extraction methods and a word embedding feature superior to Word2Vec would potentially be a more successful candidate for model improvement. One possible combination would be to utilize BERT with CNN.
 
 
 \begin{thebibliography}{00}

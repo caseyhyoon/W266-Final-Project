@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 APR 2021 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 APR 2021 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -545,22 +545,22 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 58.
+LaTeX Font Info:    Try loading font information for U+msa on input line 56.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 58.
+LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1924) in paragraph at lines 87--88
+Underfull \hbox (badness 1924) in paragraph at lines 85--86
 []\T1/ptm/m/it/10 @halalflaws @bieber-value @green-lin-erzjm I
  []
 
 
-Underfull \hbox (badness 2828) in paragraph at lines 90--91
+Underfull \hbox (badness 2828) in paragraph at lines 88--89
 []\T1/ptm/m/it/10 @OneLegSandpiper @DblBlackDs Show me
  []
 
@@ -571,38 +571,38 @@ Underfull \hbox (badness 2828) in paragraph at lines 90--91
 <fig1.png, id=10, 803.0pt x 546.04pt>
 File: fig1.png Graphic file (type png)
 <use fig1.png>
-Package pdftex.def Info: fig1.png  used on input line 135.
+Package pdftex.def Info: fig1.png  used on input line 133.
 (pdftex.def)             Requested size: 199.16928pt x 135.43484pt.
 <fig2.png, id=12, 1851.91875pt x 824.07875pt>
 File: fig2.png Graphic file (type png)
 <use fig2.png>
-Package pdftex.def Info: fig2.png  used on input line 147.
+Package pdftex.def Info: fig2.png  used on input line 145.
 (pdftex.def)             Requested size: 199.16928pt x 88.62445pt.
 
 [2 <./fig1.png> <./fig2.png>]
 <fig3.png, id=19, 534.99875pt x 250.9375pt>
 File: fig3.png Graphic file (type png)
 <use fig3.png>
-Package pdftex.def Info: fig3.png  used on input line 157.
+Package pdftex.def Info: fig3.png  used on input line 155.
 (pdftex.def)             Requested size: 199.16928pt x 93.41975pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 []\T1/ptm/m/it/10 @Lithobolos @Po-lit-i-calAnt @Za-ibat-suNews
  []
 
 
-Underfull \hbox (badness 5924) in paragraph at lines 221--222
+Underfull \hbox (badness 5924) in paragraph at lines 219--220
 \T1/ptm/m/n/8 Com-men-tary us-ing NLP and Ma-chine Learn-ing", In-ter-na-tional
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 \T1/ptm/m/n/8 Jour-nal of En-gi-neer-ing Tech-nol-ogy Sci-ence and Re-search.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 221--222
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
 \T1/ptm/m/n/8 http"//www.ijetsr.com/images/short_pdf/1517199597_1428-1435-
  []
 
@@ -636,7 +636,7 @@ live/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 431719 bytes).
+Output written on Report.pdf (3 pages, 431456 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream
