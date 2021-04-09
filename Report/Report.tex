@@ -6,6 +6,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage[T1]{fontenc}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -26,15 +27,17 @@ Berkeley, CA, USA \\
 caseyhyoon@ischool.berkeley.edu}
 }
 
-\maketitle
-
+\twocolumn[
+	\begin{@twocolumnfalse}
+	\maketitle
 \begin{abstract}
-Cyberbullying has had an immense impact on mental health for its victims on social media platforms. For these victims, creating a system to address/prevent these negative encounters would help create a more positive community. This project explored the use of neural networks and feature extraction techniques to classify sentiment on Twitter data.
+	\textit{Cyberbullying has had an immense impact on mental health for its victims on social media platforms. For these victims, creating a system to address/prevent these negative encounters would help create a more positive community. This project explored the use of neural networks and feature extraction techniques to classify sentiment on Twitter data.}
 \end{abstract}
-
+\end{@twocolumnfalse}
 \begin{IEEEkeywords}
 Machine Learning, Natural Language Processing
 \end{IEEEkeywords}
+]
 
 \section{Introduction}
 The development of mobile internet has made it possible for social media platforms, like Twitter and YouTube, to amass such popularity and have largely altered people’s lifestyles by providing users with a new way of communication that is free, convenient, and entertaining. However, these platforms have also given way to cyberbullying, a new form of electronic violence characterized by its lack of retribution for its perpetrators and whose victims range from normal personnel to celebrities or popular influencers/bloggers. Cyberbullying has had an immense impact on mental health for its victims, many of whom suffer depression and anxiety; as a result, suicide has become an unfortunate consequence due to the mental and even physical reactions from cyberbullying.
@@ -46,13 +49,13 @@ The challenges to this problem, like most sentiment analysis problems, are the f
 
 \subsection{Background}
 
-Cyberbullying is becoming a serious problem as the rapid growth in the number of internet users. There are about 4.66 billion internet users all over the world today, and this number grew by 319 million in the past 12 months. With the vast amount of users online, it is very difficult to control the violent practices. Fortunately, the growth of techniques related to natural language processing provides a potential solution, which is efficient and accurate, to the problem of cyberbullying. By analyzing the user sentiment using algorithms, the cyberbullying comments could be detected and further blocked by the server.
+Cyberbullying is becoming a serious problem from the rapid growth in the number of internet users. There are about 4.66 billion internet users all over the world today, and this number grew by 319 million in the past 12 months. With the vast amount of users online, it is very difficult to control for inappropriate behavior. Fortunately, the growth of techniques related to natural language processing provides a potential solution, which is efficient and accurate, to the problem of cyberbullying. By analyzing user sentiment using algorithms, cyberbullying comments can be detected and further blocked by the server.
 
-In the rest of this section, the authors will discuss approaches to solve this problem using NLP.
+In the rest of this section, we will discuss our approach to solving this problem using NLP.
 
 \subsection{Dataset}
 
-The authors initially explored Cyberbullying Datasets from Mendeley Data, which contains labeled user comments data collected from various platforms like Kaggle, Twitter, and Youtube. We chose the following three datasets for sentiment analysis on Twitter:
+We initially explored Cyberbullying Datasets from Mendeley Data \footnote[1]{https://data.mendeley.com/datasets/jf4pzyvnpj/1}, which contains labeled user comments data collected from various platforms like Kaggle, Twitter, and Youtube. We chose the following three datasets for sentiment analysis on Twitter:
 
 \begin{center}
 Twitter\_parsed\_dataset.csv
@@ -62,7 +65,7 @@ Twitter\_racism\_parsed\_dataset.csv
 Twitter\_sexism\_parsed\_dataset.csv
 \end{center}
 
-The authors are interested in tweets that identify to be racist or sexist -- these negative traits go against community guidelines and are the focus of our classification. Merging all three datasets together, the dataset has 45197 entries. 10694 (23.67\%)  of these entries are neutral, while the other 34503 (76.33\%) tweets have been labeled either racist or sexist.
+We are interested in tweets that identify to be racist or sexist -- these negative traits go against community guidelines and are the focus of our classification. Merging all three datasets together, the dataset has 45197 entries. 34503 (76.33\%) of entries are neutral, while the other 10694 (23.67\%) tweets have been labeled either racist or sexist.
 
 \subsection{Sample Tweets}
 \begin{quotation}
@@ -91,17 +94,17 @@ These messages are examples of non-bullying tweets. Noticed that some of these t
 
 \subsection{Data Cleaning }
 
-The authors were given raw tweets like the samples shown in the previous section. As noticed,  tweets can contain a lot of handles (@), hashtags (\#), and retweet labels (RT). The fluidity of language present in twitter data prompted a bit of consideration before tokenization:
+We were given raw tweets and the fluidity of language present in twitter data, prompted much consideration before tokenization:
 
 \begin{itemize}
-\item Addressing Twitter handles (@user) and retweet labels (RT)
+\item Addressing Twitter handles (@user)
 
 \item Removal of punctuation, numbers and special characters
 
 \item Lowercasing
 \end{itemize}
 
-Additionally, the authors did not remove hashtags and retweet labels (RT). Including hashtags into the vocabulary can make sure not to take away unique sentiment values related to certain hashtags and  retweet labels are not removed as they are superficial. Once the tweets are cleaned, they are split up into tokens to prepare for featurization.
+Additionally, we did not remove hashtags and retweet labels (RT). We include hashtags into our vocabulary in order to not take away unique sentiment values related to certain hashtags and we don't remove retweet labels as they are superficial. Once we clean our tweets, we split them into tokens to prepare for featurization.
 
 
 \subsection{Word Embeddings}
@@ -115,12 +118,12 @@ In order to train classification models, our preprocessed data need to be conver
 
 
 \section{Models}
-A lot of existing machine learning algorithms and models can be applied to the problem of cyberbullying auto detection. The authors focus specifically on the performance of the combinations of different word embeddings and model. In this section, the authors will explain four of the models: Baseline Model, Tf-idf with Feed-Forward Neural Network, Word2Vec with Convolutional Neural Network, and BERT.
+A lot of existing machine learning algorithms and models can be applied to the problem of cyberbullying auto detection. The authors focus specifically on the performance of the combinations of different word embeddings and models. In this section, the authors will explain four models: Baseline Model, Tf-idf with Feed-Forward Neural Network, Word2Vec with Convolutional Neural Network, and BERT.
 
 \subsection{Baseline Model}
-The authors built our baseline classification model using one-class classification with an accuracy of 0.76, that is, if we simply classified a tweet to be racist or sexist, we’d be correct about 76\% of the time. For our subsequent models, any accuracy score lower than this baseline will not be considered as results would be worse than random guessing.
+The authors built a naive one-class classification model with an accuracy of 0.76, that is, if we simply classified a tweet to be racist or sexist, it would be correct about 76\% of the time. We expect any potential models to be at least better than this model.
 
-	We also decided to use our baseline Tf-idf word embeddings with a logistic regression model as another baseline comparison as we introduce alternative models and also word embeddings that hopefully capture significantly better results. We achieve an accuracy of about 85\% with this baseline.
+	Instead, Tf-idf word embeddings with a logistic regression model was used as a primary baseline comparison as we introduce alternative models and also word embeddings that hopefully capture significantly better results. We achieve an accuracy of about 85\% with this baseline.
 
 
 \subsection{Tf-idf with Feed-Forward Neural Network}
@@ -202,17 +205,21 @@ Most false positive tweets contain words with negative sentiment and display emo
 \emph{Maybe the girls should have less tickets on themselves and worry about the cooking. \#MKR}
 \end{quotation}
 
-Most false negative tweets employ an underlying tone of sarcasm and surprisingly a good amount of them contain hashtags like \#mkr; which may represent some form of unique sarcastic sentiment. False negative tweets may be more difficult to classify due to hidden meanings and less direct forms of attack. Also, some bullying tweets contains hashtag like \#notSexist or \#notRacist, which makes it harder for the model to discern them with actual neutral tweets. More examples of such attacks may be needed for an algorithm to detect such outliers.
+Most false negative tweets employ an underlying tone of sarcasm and surprisingly a good amount of them contain hashtags like \#mkr; which may represent some form of unique sarcastic sentiment. False negative tweets may be more difficult to classify due to hidden meanings and less direct forms of attack. Also, some bullying tweets contain hashtags like \#notSexist or \#notRacist, which makes it harder for the model to discern them from actual neutral tweets. More examples of such attacks may be needed for an algorithm to detect such outliers.
 
 \section{Conclusion}
 
 Word2Vec with CNN performed the best as the training and test accuracies are above 98\%. With little room for improvement, no amount of optimizations will be able to increase training and test accuracies and error analysis indicates that improvements will require targeting of specific tweets; our NLP models are not able to detect such outliers.
-	Cyberbullying will not be completely eliminated as it evolves and rears its head in different forms. Though our model correctly classified 98\% of tweets, we are still very concerned about our type II error rate as the impact of an unprevented cyberbullying tweet is immense. With 4.66 billion internet users, if 1\% of this population were to receive a cyberbullying message, that would be tremendous. For global communications platforms, a sentiment analysis model with an error rate of <1\% is essential to preserving a safe community. CNN along with feature extraction methods and a word embedding feature superior to Word2Vec would potentially be a more successful candidate for model improvement. One possible combination would be to utilize BERT with CNN.
+	Cyberbullying will not be completely eliminated as it evolves and rears its head in different forms. Though our model correctly classified 98\% of tweets, we are still very concerned about our type II error rate as the impact of an unprevented cyberbullying tweet is immense. With 4.66 billion internet users, if 1\% of this population were to receive a cyberbullying message, that would be tremendous. For global communications platforms, a sentiment analysis model with an error rate of  <1\% is essential to preserving a safe community. CNN along with feature extraction methods and a word embedding feature superior to Word2Vec would potentially be a more successful candidate for model improvement. One possible combination would be to utilize BERT with CNN.
 
 
 \begin{thebibliography}{00}
-\bibitem{b1} Huang, Qianjia, et al. “Cyberbullying Intervention Based on Convolutional Neural Networks.” ACL Anthology, Association for Computational Linguistics, Aug. 2018.
-\bibitem{b2} Yoon Kim, Convolutional Neural Networks for Sentence Classification. New York University, 2014.
+\bibitem{b1} Muneer, Amgad, and Suliman Mohamed Fati. "A Comparative Analysis of Machine Learning Techniques for Cyberbullying Detection on Twitter." MDPI, Multidisciplinary Digital Publishing Institute, 29 Oct. 2020, www.mdpi.com/1999-5903/12/11/187
+\bibitem{b2} Hee, etcl., 2018. "Automatic Detection of Cyberbullying in Social Media Text", Arxiv. https://arxiv.org/pdf/1801.05617.pdf
+\bibitem{b3} Huang, Qianjia, et al. "Cyberbullying Intervention Based on Convolutional Neural Networks." ACL Anthology, Association for Computational Linguistics, Aug. 2018, www.aclweb.org/anthology/W18-4405/
+\bibitem{b4} Zhao, etcl., 2016. "Automatic Detection of Cyberbullying on Social Networks based on Bullying Features", ACM Digital Library. https://doi.org/10.1145/2833312.2849567
+\bibitem{b5} Sahay, etcl., 2018. "Detecting Cyberbullying and Aggression in Social Commentary using NLP and Machine Learning", International Journal of Engineering Technology Science and Research. http"//www.ijetsr.com/images/short\_pdf/1517199597\_1428-1435-oucip915\_ijetsr.pdf
 \end{thebibliography}
+\vspace{12pt}
 
 \end{document}
