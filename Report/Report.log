@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 APR 2021 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 APR 2021 15:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,22 +591,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--188
  []
 
 
-Underfull \hbox (badness 5924) in paragraph at lines 219--220
-\T1/ptm/m/n/8 Com-men-tary us-ing NLP and Ma-chine Learn-ing", In-ter-na-tional
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
-\T1/ptm/m/n/8 Jour-nal of En-gi-neer-ing Tech-nol-ogy Sci-ence and Re-search.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
-\T1/ptm/m/n/8 http"//www.ijetsr.com/images/short_pdf/1517199597_1428-1435-
- []
-
-
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
 
@@ -636,7 +620,7 @@ live/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 431456 bytes).
+Output written on Report.pdf (3 pages, 430972 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream

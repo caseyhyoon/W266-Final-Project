@@ -109,7 +109,7 @@ Additionally, hashtags and retweet labels (RT) were not removed. By including ha
 
 In order to train classification models, the preprocessed data (cleaned tokenized tweets) need to be converted to features. Tf-idf vectorization, which accounts for word frequencies, will be used as the baseline featurization method. Counting the number of times a certain token appears in a corpus is a simple plan to identify relationships between frequencies and text sentiment; however, nothing more.
 
-	Several existing research papers have proposed use of Word2Vec word embeddings in future research to initialize classification models, specifically convolutional neural networks. [1](Huang, Qianjia, et al.) Word2Vec, as a shallow neural network used to obtain word vectors, better represents our tokenized tweets as it utilizes word context. 
+	Several existing research papers have proposed use of Word2Vec word embeddings in future research to initialize classification models, specifically convolutional neural networks. [1] (Huang, Qianjia, et al.) Word2Vec, as a shallow neural network used to obtain word vectors, better represents our tokenized tweets as it utilizes word context. Inspiration for the use of Tf-idf and Word2Vec embeddings have also been drawn from the work of Muneer, Amgad, and Suliman Mohamed Fati.  [2]
 
 	Finally, Bidirectional Encoder Representations from Transformers (BERT) was another pre-trained processing model that was a topic of interest because it was a higher level tokenizer that maintained sequence information.
 
@@ -212,11 +212,8 @@ Word2Vec with CNN performed the best as the training and test accuracies are abo
 
 
 \begin{thebibliography}{00}
-\bibitem{b1} Muneer, Amgad, and Suliman Mohamed Fati. "A Comparative Analysis of Machine Learning Techniques for Cyberbullying Detection on Twitter." MDPI, Multidisciplinary Digital Publishing Institute, 29 Oct. 2020, www.mdpi.com/1999-5903/12/11/187
-\bibitem{b2} Hee, etcl., 2018. "Automatic Detection of Cyberbullying in Social Media Text", Arxiv. https://arxiv.org/pdf/1801.05617.pdf
-\bibitem{b3} Huang, Qianjia, et al. "Cyberbullying Intervention Based on Convolutional Neural Networks." ACL Anthology, Association for Computational Linguistics, Aug. 2018, www.aclweb.org/anthology/W18-4405/
-\bibitem{b4} Zhao, etcl., 2016. "Automatic Detection of Cyberbullying on Social Networks based on Bullying Features", ACM Digital Library. https://doi.org/10.1145/2833312.2849567
-\bibitem{b5} Sahay, etcl., 2018. "Detecting Cyberbullying and Aggression in Social Commentary using NLP and Machine Learning", International Journal of Engineering Technology Science and Research. http"//www.ijetsr.com/images/short\_pdf/1517199597\_1428-1435-oucip915\_ijetsr.pdf
+\bibitem{b1} Huang, Qianjia, et al. "Cyberbullying Intervention Based on Convolutional Neural Networks." ACL Anthology, Association for Computational Linguistics, Aug. 2018, www.aclweb.org/anthology/W18-4405/
+\bibitem{b2} Muneer, Amgad, and Suliman Mohamed Fati. "A Comparative Analysis of Machine Learning Techniques for Cyberbullying Detection on Twitter." MDPI, Multidisciplinary Digital Publishing Institute, 29 Oct. 2020, www.mdpi.com/1999-5903/12/11/187
 \end{thebibliography}
 \vspace{12pt}
 
