@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 APR 2021 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  10 APR 2021 19:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,6 +591,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 187--188
  []
 
 
+Underfull \hbox (badness 4120) in paragraph at lines 217--218
+[]\T1/ptm/m/n/8 Kim, Y. (2014, Septem-ber 03). Con-vo-lu-tional neu-ral net-wor
+ks
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+\T1/ptm/m/n/8 for Sen-tence Clas-si-fi-ca-tion. Re-trieved April 11, 2021, from
+
+ []
+
+
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
 
@@ -607,10 +619,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4705 strings out of 492616
- 66679 string characters out of 6129482
- 139326 words of memory out of 5000000
- 8541 multiletter control sequences out of 15000+600000
+ 4703 strings out of 492616
+ 66671 string characters out of 6129482
+ 139317 words of memory out of 5000000
+ 8539 multiletter control sequences out of 15000+600000
  119797 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,9n,35p,792b,292s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -620,7 +632,7 @@ live/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2019/texmf-dis
 t/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 430972 bytes).
+Output written on Report.pdf (3 pages, 431112 bytes).
 PDF statistics:
  42 PDF objects out of 1000 (max. 8388607)
  25 compressed objects within 1 object stream
